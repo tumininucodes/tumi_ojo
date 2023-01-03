@@ -5,12 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:tumi_ojo/constants.dart';
+
+import 'extensions/height.dart';
+import 'extensions/width.dart';
 import 'more_about_me_screen.dart';
 
 void main() {
   runApp(MaterialApp(
     home: const MyApp(),
-    theme: ThemeData(fontFamily: "OpenSans"),
+    theme: ThemeData(fontFamily: 'DotMatrix'),
     debugShowCheckedModeBanner: false,
     themeMode: ThemeMode.light,
   ));
@@ -36,6 +39,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Row(
+          children: const [Text("<TUMI.DEV/>"), Spacer()],
+        ),
+        backgroundColor: Colors.black,
+      ),
       body: buildContainer(),
     );
   }
@@ -44,45 +53,58 @@ class _MyAppState extends State<MyApp> {
     return Container(
       height: double.infinity,
       width: double.infinity,
-      decoration: buildBackground(),
-      child: Row(
-        children: [
-          const SizedBox(
-            width: 50,
-          ),
-          buildProfileImageCard(),
-          Expanded(
-              flex: 2,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 100),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    buildName(),
-                    buildTitle(),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    buildDescription(),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    buildMoreInfoButton()
-                  ],
-                ),
-              )),
-          buildSocialMediaLinksButtons(),
-          const SizedBox(
-            width: 20,
-          )
-        ],
+      color: Colors.black,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  buildName(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  buildTitle(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  buildDescription(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Center(
+                    child: buildMoreInfoButton(),
+                  ),
+                  height(20),
+                  subTitleText("MY SKILLS"),
+                  height(20),
+                  skillsSection(),
+                  height(20),
+                  contactText(),
+                  dontBeShyBox(),
+                  height(20),
+                  formBox()
+                ],
+              ),
+            ),
+            const SizedBox(
+              width: 20,
+            )
+          ],
+        ),
       ),
     );
   }
 
-  Column buildSocialMediaLinksButtons() {
-    return Column(
+  Row buildSocialMediaLinksButtons() {
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Tooltip(
@@ -92,11 +114,9 @@ class _MyAppState extends State<MyApp> {
               js.context
                   .callMethod('open', ['https://github.com/tumininucodes']);
             },
-            child: Container(
+            child: SizedBox(
                 height: 50,
                 width: 50,
-                decoration: const BoxDecoration(
-                    shape: BoxShape.circle, color: greyColor),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Image.asset("assets/github.png"),
@@ -114,11 +134,9 @@ class _MyAppState extends State<MyApp> {
                 'https://stackoverflow.com/users/14202587/tumininucodes?tab=profile'
               ]);
             },
-            child: Container(
+            child: SizedBox(
                 height: 50,
                 width: 50,
-                decoration: const BoxDecoration(
-                    shape: BoxShape.circle, color: greyColor),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Image.asset("assets/stackoverflow.png"),
@@ -135,11 +153,9 @@ class _MyAppState extends State<MyApp> {
               js.context.callMethod(
                   'open', ['https://ng.linkedin.com/in/oluwatumininu-ojo']);
             },
-            child: Container(
-                height: 50,
-                width: 50,
-                decoration: const BoxDecoration(
-                    shape: BoxShape.circle, color: greyColor),
+            child: SizedBox(
+                height: 30,
+                width: 30,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Image.asset("assets/linkedin.png"),
@@ -147,19 +163,17 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
         const SizedBox(
-          height: 20,
+          height: 30,
         ),
         Tooltip(
           message: "Twitter",
           child: InkWell(
             onTap: () {
-              js.context.callMethod('open', ['https://twitter.com/tumiOnIt']);
+              js.context.callMethod('open', ['https://twitter.com/tumi_ojo']);
             },
-            child: Container(
-                height: 50,
-                width: 50,
-                decoration: const BoxDecoration(
-                    shape: BoxShape.circle, color: greyColor),
+            child: SizedBox(
+                height: 30,
+                width: 30,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Image.asset("assets/twitter.png"),
@@ -167,7 +181,7 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
         const SizedBox(
-          height: 20,
+          height: 30,
         ),
         Tooltip(
           message: 'oluwatumininuojo25@gmail.com',
@@ -181,11 +195,9 @@ class _MyAppState extends State<MyApp> {
               Clipboard.setData(
                   const ClipboardData(text: "oluwatumininuojo25@gmail.com"));
             },
-            child: Container(
-                height: 50,
-                width: 50,
-                decoration: const BoxDecoration(
-                    shape: BoxShape.circle, color: greyColor),
+            child: SizedBox(
+                height: 30,
+                width: 30,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Image.asset(
@@ -218,9 +230,9 @@ class _MyAppState extends State<MyApp> {
             child: Text(
               "MORE ABOUT ME",
               style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold),
+                color: Colors.white,
+                fontSize: 18,
+              ),
             ),
           ),
           Icon(
@@ -232,15 +244,18 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  Text buildDescription() {
-    return const Text(
-        "I'm a Tunisian based web designer & front‑end "
-        "developer focused on crafting clean & user‑friendly "
-        "experiences, I am passionate about building excellent "
-        "software that improves the lives of those around me.",
-        softWrap: true,
-        style: TextStyle(fontSize: 15, color: Colors.white),
-        textAlign: TextAlign.start);
+  Padding buildDescription() {
+    return const Padding(
+      padding: EdgeInsets.all(20.0),
+      child: Text(
+          "I TURN IDEAS INTO REALITY USING CODE. I THINK I MIGHT BE A FEATURE "
+          "SHIPPING BUG IN THE MATRIX. I LOVE BUILDING GREAT PRODUCTS THAT ACTUALLY "
+          "SOLVES PEOPLE'S PROBLEM. MOST IMPORTANTLY, I WANT TO BE THE CHANGE THAT I "
+          "WANT TO SEE IN THE WORLD.",
+          softWrap: true,
+          style: TextStyle(fontSize: 16, color: Colors.white),
+          textAlign: TextAlign.start),
+    );
   }
 
   Row buildTitle() {
@@ -251,9 +266,8 @@ class _MyAppState extends State<MyApp> {
         ),
         Expanded(
           child: Text(
-            "MOBILE APP DEVELOPER",
-            style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 48, color: Colors.white),
+            "I'M A SOFTWARE ENGINEER",
+            style: TextStyle(fontSize: 30, color: Colors.white),
           ),
         ),
       ],
@@ -262,19 +276,18 @@ class _MyAppState extends State<MyApp> {
 
   Text buildName() {
     return const Text(
-      "- I'M OLUWATUMININU OJO.",
-      style: TextStyle(
-          fontSize: 50, color: deepYellow, fontWeight: FontWeight.bold),
+      "- HI!👋🏾\n I'M TUMININU OJO.",
+      style: TextStyle(fontSize: 40, color: deepYellow),
     );
   }
 
   Expanded buildProfileImageCard() {
     return Expanded(
       flex: 1,
-      child: Container(
+      child: SizedBox(
         height: double.infinity,
         child: Card(
-          margin: EdgeInsets.symmetric(vertical: 50),
+          margin: const EdgeInsets.symmetric(vertical: 50),
           color: Colors.black,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
@@ -286,12 +299,6 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
     );
-  }
-
-  BoxDecoration buildBackground() {
-    return const BoxDecoration(
-        image: DecorationImage(
-            fit: BoxFit.cover, image: AssetImage("assets/background2.png")));
   }
 
   Widget toast = Container(
@@ -311,4 +318,375 @@ class _MyAppState extends State<MyApp> {
       ],
     ),
   );
+
+  Column formBox() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: SizedBox(
+                child: TextField(
+                  cursorColor: deepYellow,
+                  decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 15),
+                      hintText: "YOUR NAME",
+                      isDense: true,
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(
+                          color: deepYellow,
+                        ),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      hintStyle:
+                          const TextStyle(color: greyTextColor, fontSize: 12),
+                      fillColor: greyColor,
+                      filled: true),
+                ),
+              ),
+            ),
+            width(20),
+            Expanded(
+              child: SizedBox(
+                child: TextField(
+                  cursorColor: deepYellow,
+                  decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 15),
+                      hintText: "YOUR EMAIL",
+                      isDense: true,
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(
+                          color: deepYellow,
+                        ),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      hintStyle:
+                          const TextStyle(color: greyTextColor, fontSize: 12),
+                      fillColor: greyColor,
+                      filled: true),
+                ),
+              ),
+            ),
+          ],
+        ),
+        height(20),
+        SizedBox(
+            width: double.infinity,
+            child: TextField(
+              cursorColor: deepYellow,
+              decoration: InputDecoration(
+                  contentPadding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  hintText: "YOUR SUBJECT",
+                  isDense: true,
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    borderSide: const BorderSide(
+                      color: deepYellow,
+                    ),
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  hintStyle:
+                      const TextStyle(color: greyTextColor, fontSize: 12),
+                  fillColor: greyColor,
+                  filled: true),
+            )),
+        height(20),
+        SizedBox(
+            width: double.infinity,
+            child: TextField(
+              cursorColor: deepYellow,
+              maxLines: 9,
+              decoration: InputDecoration(
+                  contentPadding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  hintText: "YOUR MESSAGE",
+                  isDense: true,
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    borderSide: const BorderSide(
+                      color: deepYellow,
+                    ),
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  hintStyle:
+                      const TextStyle(color: greyTextColor, fontSize: 12),
+                  fillColor: greyColor,
+                  filled: true),
+            )),
+        height(20),
+        Center(
+          child: OutlinedButton(
+            onPressed: () {},
+            style: OutlinedButton.styleFrom(
+              primary: deepYellow,
+              side: const BorderSide(width: 1.0, color: deepYellow),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)),
+            ),
+            child: SizedBox(
+              width: 200,
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.all(12.0),
+                      child: Text(
+                        "SEND MESSAGE",
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      ),
+                    ),
+                    Icon(
+                      Icons.send_rounded,
+                      color: deepYellow,
+                    )
+                  ]),
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
+  Padding dontBeShyBox() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          Text(
+            "FEEL FREE TO GET IN TOUCH WITH ME. I AM ALWAYS "
+            "OPEN TO DISCUSSING NEW PROJECTS, CREATIVE "
+            "IDEAS OR OPPORTUNITIES.",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Row skillsSection() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Column(
+              children: [
+                SizedBox(
+                  child: Image.asset("assets/android.png"),
+                  height: 50,
+                ),
+                height(10),
+                const Text(
+                  "ANDROID",
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
+            ),
+            height(40),
+            Column(
+              children: [
+                SizedBox(
+                  child: Image.asset("assets/swift.png"),
+                  height: 50,
+                ),
+                height(10),
+                const Text(
+                  "SWIFTUI",
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
+            ),
+          ],
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Column(
+              children: [
+                SizedBox(
+                  child: Image.asset("assets/flutter.png"),
+                  height: 50,
+                ),
+                height(10),
+                const Text(
+                  "FLUTTER",
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
+            ),
+            height(40),
+            Column(
+              children: [
+                SizedBox(
+                  child: Image.asset("assets/dart.png"),
+                  height: 50,
+                ),
+                height(10),
+                const Text(
+                  "DART",
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
+            ),
+          ],
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Column(
+              children: [
+                SizedBox(
+                  child: Image.asset("assets/compose.png"),
+                  height: 50,
+                ),
+                height(10),
+                const Text(
+                  "COMPOSE",
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
+            ),
+            height(40),
+            Column(
+              children: [
+                SizedBox(
+                  child: Image.asset("assets/java.png"),
+                  height: 50,
+                ),
+                height(10),
+                const Text(
+                  "JAVA",
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
+            ),
+          ],
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Column(
+              children: [
+                SizedBox(
+                  child: Image.asset("assets/kotlin.png"),
+                  height: 50,
+                ),
+                height(10),
+                const Text(
+                  "KOTLIN",
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
+            ),
+            height(40),
+            Column(
+              children: [
+                SizedBox(
+                  child: Image.asset("assets/python.png"),
+                  height: 50,
+                ),
+                height(10),
+                const Text(
+                  "PYTHON",
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
+            ),
+          ],
+        )
+      ],
+    );
+  }
+
+  Padding subTitleText(String title) {
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Text(
+        title,
+        style: const TextStyle(color: Colors.white, fontSize: 25),
+      ),
+    );
+  }
+
+  Padding contactText() {
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Container(
+        margin: const EdgeInsets.only(top: 10),
+        child: RichText(
+            text: const TextSpan(
+                style: TextStyle(fontSize: 25, color: Colors.white),
+                children: [
+              TextSpan(
+                  text: "GET IN ", style: TextStyle(fontFamily: 'DotMatrix')),
+              TextSpan(
+                  text: "TOUCH",
+                  style: TextStyle(color: deepYellow, fontFamily: 'DotMatrix')),
+            ])),
+      ),
+    );
+  }
+
+  Center aboutMeText() {
+    return Center(
+      child: Stack(children: [
+        const Positioned(
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: Text(
+              "ABOUT ME",
+              style: TextStyle(
+                  color: deepGreyColor,
+                  fontFamily: "OpenSans",
+                  fontSize: 100,
+                  fontWeight: FontWeight.w900),
+            ),
+          ),
+        ),
+        Center(
+          child: Container(
+            margin: EdgeInsets.only(top: 38),
+            child: RichText(
+                text: const TextSpan(
+                    style: TextStyle(
+                        fontSize: 48,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                    children: [
+                  TextSpan(
+                      text: "ABOUT ",
+                      style: TextStyle(
+                          fontFamily: "OpenSans", fontWeight: FontWeight.w900)),
+                  TextSpan(
+                      text: "ME",
+                      style: TextStyle(
+                          color: deepYellow,
+                          fontFamily: "OpenSans",
+                          fontWeight: FontWeight.w900)),
+                ])),
+          ),
+        ),
+      ]),
+    );
+  }
 }

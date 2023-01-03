@@ -63,11 +63,10 @@ flutter:
 
 
   fonts:
-    - family: OpenSans
+    - family: DotMatrix
       fonts:
-        - asset: assets/fonts/OpenSans-Regular.ttf
-        - asset: assets/fonts/OpenSans-Bold.ttf
-        - asset: assets/fonts/OpenSans-ExtraBold.ttf
+        - asset: assets/fonts/dotmatrix.ttf
+
   # To add assets to your application, add an assets section, like this:
 
   # An image asset can refer to one or more resolution-specific "variants", see
