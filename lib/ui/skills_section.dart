@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../extensions/height.dart';
 
-Row buildSkillsSection() {
+Row buildSkillsSection({required double iconSize, required double fontSize}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     children: [
@@ -12,13 +12,14 @@ Row buildSkillsSection() {
           Column(
             children: [
               SizedBox(
-                child: Image.asset("assets/android.png"),
-                height: 50,
+                child: Image.asset("assets/kotlin.png"),
+                height: iconSize,
+                width: iconSize,
               ),
               height(10),
-              const Text(
-                "ANDROID",
-                style: TextStyle(color: Colors.white),
+              Text(
+                "KOTLIN",
+                style: TextStyle(color: Colors.white, fontSize: fontSize),
               )
             ],
           ),
@@ -27,12 +28,13 @@ Row buildSkillsSection() {
             children: [
               SizedBox(
                 child: Image.asset("assets/swift.png"),
-                height: 50,
+                height: iconSize,
+                width: iconSize,
               ),
               height(10),
-              const Text(
+              Text(
                 "SWIFTUI",
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white, fontSize: fontSize),
               )
             ],
           ),
@@ -45,12 +47,13 @@ Row buildSkillsSection() {
             children: [
               SizedBox(
                 child: Image.asset("assets/flutter.png"),
-                height: 50,
+                height: iconSize,
+                width: iconSize,
               ),
               height(10),
-              const Text(
+              Text(
                 "FLUTTER",
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white, fontSize: fontSize),
               )
             ],
           ),
@@ -58,13 +61,17 @@ Row buildSkillsSection() {
           Column(
             children: [
               SizedBox(
-                child: Image.asset("assets/dart.png"),
-                height: 50,
+                child: Image.asset(
+                  "assets/dart.png",
+                  scale: 2,
+                ),
+                height: iconSize,
+                width: iconSize,
               ),
               height(10),
-              const Text(
+              Text(
                 "DART",
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white, fontSize: fontSize),
               )
             ],
           ),
@@ -77,12 +84,13 @@ Row buildSkillsSection() {
             children: [
               SizedBox(
                 child: Image.asset("assets/compose.png"),
-                height: 50,
+                height: iconSize,
+                width: iconSize,
               ),
               height(10),
-              const Text(
+              Text(
                 "COMPOSE",
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white, fontSize: fontSize),
               )
             ],
           ),
@@ -91,12 +99,13 @@ Row buildSkillsSection() {
             children: [
               SizedBox(
                 child: Image.asset("assets/java.png"),
-                height: 50,
+                height: iconSize,
+                width: iconSize,
               ),
               height(10),
-              const Text(
+              Text(
                 "JAVA",
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white, fontSize: fontSize),
               )
             ],
           ),
@@ -108,13 +117,14 @@ Row buildSkillsSection() {
           Column(
             children: [
               SizedBox(
-                child: Image.asset("assets/kotlin.png"),
-                height: 50,
+                child: Image.asset("assets/golang.png"),
+                height: iconSize,
+                width: iconSize,
               ),
               height(10),
-              const Text(
-                "KOTLIN",
-                style: TextStyle(color: Colors.white),
+              Text(
+                "GO",
+                style: TextStyle(color: Colors.white, fontSize: fontSize),
               )
             ],
           ),
@@ -122,13 +132,14 @@ Row buildSkillsSection() {
           Column(
             children: [
               SizedBox(
-                child: Image.asset("assets/python.png"),
-                height: 50,
+                child: Image.asset("assets/rust.png"),
+                height: iconSize,
+                width: iconSize,
               ),
               height(10),
-              const Text(
-                "PYTHON",
-                style: TextStyle(color: Colors.white),
+              Text(
+                "RUST",
+                style: TextStyle(color: Colors.white, fontSize: fontSize),
               )
             ],
           ),

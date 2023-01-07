@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:tumi_ojo/utils/constants.dart';
 
-Padding contactText() {
+Padding contactText({required double fontSize}) {
   return Padding(
     padding: const EdgeInsets.all(20.0),
     child: Container(
       margin: const EdgeInsets.only(top: 10),
       child: RichText(
-          text: const TextSpan(
-              style: TextStyle(fontSize: 25, color: Colors.white),
-              children: [
+          text: TextSpan(
+              style: TextStyle(fontSize: fontSize, color: Colors.white),
+              children: const [
             TextSpan(
                 text: "GET IN ", style: TextStyle(fontFamily: 'DotMatrix')),
             TextSpan(

@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:tumi_ojo/ui/toast.dart';
 
-Row buildSocialMediaLinksButtons(context) {
+Row buildSocialMediaLinksButtons(context, {required double iconSize}) {
   FToast fToast = FToast();
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -17,16 +17,19 @@ Row buildSocialMediaLinksButtons(context) {
             // js.context.callMethod('open', ['https://github.com/tumininucodes']);
           },
           child: SizedBox(
-              height: 50,
-              width: 50,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Image.asset("assets/github.png"),
-              )),
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(
+              "assets/github.png",
+              height: iconSize,
+              width: iconSize,
+              fit: BoxFit.fill,
+            ),
+          )),
         ),
       ),
       const SizedBox(
-        height: 30,
+        width: 30,
       ),
       Tooltip(
         message: 'Stackoverflow',
@@ -37,16 +40,19 @@ Row buildSocialMediaLinksButtons(context) {
             ]);
           },
           child: SizedBox(
-              height: 50,
-              width: 50,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Image.asset("assets/stackoverflow.png"),
-              )),
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(
+              "assets/stackoverflow.png",
+              height: iconSize,
+              width: iconSize,
+              fit: BoxFit.fill,
+            ),
+          )),
         ),
       ),
       const SizedBox(
-        height: 30,
+        width: 30,
       ),
       Tooltip(
         message: "LinkedIn",
@@ -56,16 +62,19 @@ Row buildSocialMediaLinksButtons(context) {
                 'open', ['https://ng.linkedin.com/in/oluwatumininu-ojo']);
           },
           child: SizedBox(
-              height: 50,
-              width: 50,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Image.asset("assets/linkedin.png"),
-              )),
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(
+              "assets/linkedin.png",
+              height: iconSize,
+              width: iconSize,
+              fit: BoxFit.fill,
+            ),
+          )),
         ),
       ),
       const SizedBox(
-        height: 30,
+        width: 30,
       ),
       Tooltip(
         message: "Twitter",
@@ -74,16 +83,19 @@ Row buildSocialMediaLinksButtons(context) {
             js.context.callMethod('open', ['https://twitter.com/tumi_ojo']);
           },
           child: SizedBox(
-              height: 50,
-              width: 50,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Image.asset("assets/twitter.png"),
-              )),
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(
+              "assets/twitter.png",
+              height: iconSize,
+              width: iconSize,
+              fit: BoxFit.fill,
+            ),
+          )),
         ),
       ),
       const SizedBox(
-        height: 30,
+        width: 30,
       ),
       Tooltip(
         message: 'oluwatumininuojo25@gmail.com',
@@ -98,14 +110,15 @@ Row buildSocialMediaLinksButtons(context) {
                 const ClipboardData(text: "oluwatumininuojo25@gmail.com"));
           },
           child: SizedBox(
-              height: 50,
-              width: 50,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Image.asset(
-                  "assets/gmail.png",
-                ),
-              )),
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(
+              "assets/gmail.png",
+              height: iconSize,
+              width: iconSize,
+              fit: BoxFit.fill,
+            ),
+          )),
         ),
       ),
     ],

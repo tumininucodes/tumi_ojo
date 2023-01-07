@@ -12,11 +12,10 @@ import 'form_box.dart';
 import 'more_info_button.dart';
 import 'name.dart';
 
-Container buildMobileUI(context) {
-  return Container(
+SizedBox buildMobileUI(context) {
+  return SizedBox(
     height: double.infinity,
     width: double.infinity,
-    color: Colors.black,
     child: SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,7 +29,7 @@ Container buildMobileUI(context) {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                buildNameText(40),
+                buildNameText(fontSize: 40),
                 const SizedBox(
                   height: 20,
                 ),
@@ -38,24 +37,24 @@ Container buildMobileUI(context) {
                 const SizedBox(
                   height: 20,
                 ),
-                buildDescription(),
+                buildDescription(fontSize: 16),
                 const SizedBox(
                   height: 20,
                 ),
                 Center(
-                  child: buildMoreInfoButton(context),
+                  child: buildMoreInfoButton(context, fontSize: 18),
                 ),
                 height(20),
-                subTitleText("MY SKILLS"),
+                subTitleText("MY SKILLS", fontSize: 25),
                 height(20),
-                buildSkillsSection(),
+                buildSkillsSection(iconSize: 50, fontSize: 16),
                 height(20),
-                contactText(),
-                dontBeShyBox(),
+                contactText(fontSize: 25),
+                dontBeShyBox(fontSize: 16),
                 height(20),
-                buildSocialMediaLinksButtons(context),
+                buildSocialMediaLinksButtons(context, iconSize: 50),
                 height(20),
-                formBox(),
+                formBox(fontSize: 18, btnFontSize: 18),
               ],
             ),
           ),

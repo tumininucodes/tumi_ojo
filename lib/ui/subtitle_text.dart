@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-Padding subTitleText(String title) {
+Padding subTitleText(String title, {required double fontSize}) {
   return Padding(
     padding: const EdgeInsets.all(20.0),
     child: Text(
       title,
-      style: const TextStyle(color: Colors.white, fontSize: 25),
+      style: TextStyle(color: Colors.white, fontSize: fontSize),
     ),
   );
 }

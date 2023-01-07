@@ -39,17 +39,16 @@ class _MyAppState extends State<MyApp> {
         ),
         backgroundColor: Colors.black,
       ),
+      backgroundColor: Colors.black,
       body: buildMainScreen(context),
     );
   }
 
-  Container buildMainScreen(context) {
+  Widget buildMainScreen(context) {
     if (screenType(context) == "mobile") {
       return buildMobileUI(context);
     } else {
       return buildDesktopUI();
     }
   }
-
-
 }
