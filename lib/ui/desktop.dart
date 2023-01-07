@@ -40,7 +40,7 @@ SingleChildScrollView buildDesktopUI() {
               height(20),
               subTitleText("I USE....", fontSize: 60),
               height(20),
-              buildSkillsSection(iconSize: 140, fontSize: 30),
+              buildSkillsSection(iconSize: 140, fontSize: 60),
               height(80),
               Align(
                 alignment: Alignment.centerRight,

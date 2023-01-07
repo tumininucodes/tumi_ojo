@@ -5,7 +5,7 @@ import 'package:tumi_ojo/utils/constants.dart';
 
 Padding formBox({required double fontSize, required double btnFontSize}) {
   return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+    padding: const EdgeInsets.symmetric(horizontal: 10.0),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
