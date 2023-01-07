@@ -52,7 +52,7 @@ SizedBox buildMobileUI(context) {
                 contactText(fontSize: 25),
                 dontBeShyBox(fontSize: 16),
                 height(20),
-                buildSocialMediaLinksButtons(context, iconSize: 50),
+                buildSocialMediaLinksButtons(context, iconSize: 25),
                 height(20),
                 formBox(fontSize: 18, btnFontSize: 18),
               ],

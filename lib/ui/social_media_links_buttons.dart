@@ -23,7 +23,7 @@ Row buildSocialMediaLinksButtons(context, {required double iconSize}) {
               "assets/github.png",
               height: iconSize,
               width: iconSize,
-              fit: BoxFit.fill,
+              scale: 3.6,
             ),
           )),
         ),
@@ -68,7 +68,7 @@ Row buildSocialMediaLinksButtons(context, {required double iconSize}) {
               "assets/linkedin.png",
               height: iconSize,
               width: iconSize,
-              fit: BoxFit.fill,
+              scale: 4,
             ),
           )),
         ),
@@ -113,7 +113,7 @@ Row buildSocialMediaLinksButtons(context, {required double iconSize}) {
               child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Image.asset(
-              "assets/gmail.png",
+              "assets/gmail.jpeg",
               height: iconSize,
               width: iconSize,
               fit: BoxFit.fill,

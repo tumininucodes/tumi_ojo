@@ -126,7 +126,7 @@ Padding formBox({required double fontSize, required double btnFontSize}) {
         height(20),
         Center(
           child: Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(0.0),
             child: OutlinedButton(
               onPressed: () {},
               style: OutlinedButton.styleFrom(
