@@ -1,15 +1,16 @@
+import 'dart:js' as js;
+
 import 'package:flutter/material.dart';
 import 'package:tumi_ojo/utils/constants.dart';
-
-import 'more_about_me_screen.dart';
 
 Padding buildMoreInfoButton(context, {required double fontSize}) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: OutlinedButton(
       onPressed: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const MoreAboutMeScreen()));
+        js.context.callMethod('open', [
+          'https://drive.google.com/file/d/1WD_pbHFiqbc4PKWhOJdTs2T9niXgfbSo/view?usp=sharing'
+        ]);
       },
       style: OutlinedButton.styleFrom(
         foregroundColor: deepYellow,
