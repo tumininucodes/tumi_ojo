@@ -1,14 +1,13 @@
-import 'dart:js' as js;
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:tumi_ojo/constants.dart';
+import 'package:tumi_ojo/ui/desktop.dart';
+import 'package:tumi_ojo/ui/mobile.dart';
+import 'package:tumi_ojo/utils/constants.dart';
+import 'package:tumi_ojo/utils/responsive.dart';
 
 import 'extensions/height.dart';
 import 'extensions/width.dart';
-import 'more_about_me_screen.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -45,203 +44,16 @@ class _MyAppState extends State<MyApp> {
         ),
         backgroundColor: Colors.black,
       ),
-      body: buildContainer(),
+      body: buildMainScreen(context),
     );
   }
 
-  Container buildContainer() {
-    return Container(
-      height: double.infinity,
-      width: double.infinity,
-      color: Colors.black,
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  buildName(),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  buildTitle(),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  buildDescription(),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Center(
-                    child: buildMoreInfoButton(),
-                  ),
-                  height(20),
-                  subTitleText("MY SKILLS"),
-                  height(20),
-                  skillsSection(),
-                  height(20),
-                  contactText(),
-                  dontBeShyBox(),
-                  height(20),
-                  formBox()
-                ],
-              ),
-            ),
-            const SizedBox(
-              width: 20,
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  Row buildSocialMediaLinksButtons() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Tooltip(
-          message: "Github",
-          child: InkWell(
-            onTap: () {
-              js.context
-                  .callMethod('open', ['https://github.com/tumininucodes']);
-            },
-            child: SizedBox(
-                height: 50,
-                width: 50,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset("assets/github.png"),
-                )),
-          ),
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        Tooltip(
-          message: 'Stackoverflow',
-          child: InkWell(
-            onTap: () {
-              js.context.callMethod('open', [
-                'https://stackoverflow.com/users/14202587/tumininucodes?tab=profile'
-              ]);
-            },
-            child: SizedBox(
-                height: 50,
-                width: 50,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset("assets/stackoverflow.png"),
-                )),
-          ),
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        Tooltip(
-          message: "LinkedIn",
-          child: InkWell(
-            onTap: () {
-              js.context.callMethod(
-                  'open', ['https://ng.linkedin.com/in/oluwatumininu-ojo']);
-            },
-            child: SizedBox(
-                height: 30,
-                width: 30,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset("assets/linkedin.png"),
-                )),
-          ),
-        ),
-        const SizedBox(
-          height: 30,
-        ),
-        Tooltip(
-          message: "Twitter",
-          child: InkWell(
-            onTap: () {
-              js.context.callMethod('open', ['https://twitter.com/tumi_ojo']);
-            },
-            child: SizedBox(
-                height: 30,
-                width: 30,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset("assets/twitter.png"),
-                )),
-          ),
-        ),
-        const SizedBox(
-          height: 30,
-        ),
-        Tooltip(
-          message: 'oluwatumininuojo25@gmail.com',
-          child: InkWell(
-            onTap: () {
-              fToast.showToast(
-                child: toast,
-                gravity: ToastGravity.BOTTOM,
-                toastDuration: const Duration(seconds: 2),
-              );
-              Clipboard.setData(
-                  const ClipboardData(text: "oluwatumininuojo25@gmail.com"));
-            },
-            child: SizedBox(
-                height: 30,
-                width: 30,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset(
-                    "assets/gmail.png",
-                  ),
-                )),
-          ),
-        ),
-      ],
-    );
-  }
-
-  OutlinedButton buildMoreInfoButton() {
-    return OutlinedButton(
-      onPressed: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const MoreAboutMeScreen()));
-      },
-      style: OutlinedButton.styleFrom(
-        primary: deepYellow,
-        side: const BorderSide(width: 1.0, color: deepYellow),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-      ),
-      child: SizedBox(
-        width: 250,
-        child:
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: const [
-          Padding(
-            padding: EdgeInsets.all(12.0),
-            child: Text(
-              "MORE ABOUT ME",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-              ),
-            ),
-          ),
-          Icon(
-            Icons.arrow_forward,
-            color: Colors.white,
-          )
-        ]),
-      ),
-    );
+  Container buildMainScreen(context) {
+    if (screenType(context) == "mobile") {
+      return buildMobileUI();
+    } else {
+      return buildDesktopUI();
+    }
   }
 
   Padding buildDescription() {
@@ -482,7 +294,7 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  Row skillsSection() {
+  Row buildSkillsSection() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
