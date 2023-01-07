@@ -1,6 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:tumi_ojo/extensions/height.dart';
+import 'package:tumi_ojo/ui/skills_section.dart';
+import 'package:tumi_ojo/ui/social_media_links_buttons.dart';
+import 'package:tumi_ojo/ui/subtitle_text.dart';
+import 'package:tumi_ojo/ui/title.dart';
 
-Container buildMobileUI() {
+import 'contact_text.dart';
+import 'description.dart';
+import 'dont_be_shy.dart';
+import 'form_box.dart';
+import 'more_info_button.dart';
+import 'name.dart';
+
+Container buildMobileUI(context) {
   return Container(
     height: double.infinity,
     width: double.infinity,
@@ -18,11 +30,11 @@ Container buildMobileUI() {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                buildName(),
+                buildNameText(40),
                 const SizedBox(
                   height: 20,
                 ),
-                buildTitle(),
+                buildTitleText(fontSize: 30),
                 const SizedBox(
                   height: 20,
                 ),
@@ -31,7 +43,7 @@ Container buildMobileUI() {
                   height: 20,
                 ),
                 Center(
-                  child: buildMoreInfoButton(),
+                  child: buildMoreInfoButton(context),
                 ),
                 height(20),
                 subTitleText("MY SKILLS"),
@@ -41,7 +53,9 @@ Container buildMobileUI() {
                 contactText(),
                 dontBeShyBox(),
                 height(20),
-                formBox()
+                buildSocialMediaLinksButtons(context),
+                height(20),
+                formBox(),
               ],
             ),
           ),

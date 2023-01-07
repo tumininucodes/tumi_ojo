@@ -1,8 +1,12 @@
+import 'dart:js' as js;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:tumi_ojo/ui/toast.dart';
 
-Row buildSocialMediaLinksButtons() {
+Row buildSocialMediaLinksButtons(context) {
+  FToast fToast = FToast();
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
@@ -10,7 +14,7 @@ Row buildSocialMediaLinksButtons() {
         message: "Github",
         child: InkWell(
           onTap: () {
-            js.context.callMethod('open', ['https://github.com/tumininucodes']);
+            // js.context.callMethod('open', ['https://github.com/tumininucodes']);
           },
           child: SizedBox(
               height: 50,
@@ -22,7 +26,7 @@ Row buildSocialMediaLinksButtons() {
         ),
       ),
       const SizedBox(
-        height: 20,
+        height: 30,
       ),
       Tooltip(
         message: 'Stackoverflow',
@@ -42,7 +46,7 @@ Row buildSocialMediaLinksButtons() {
         ),
       ),
       const SizedBox(
-        height: 20,
+        height: 30,
       ),
       Tooltip(
         message: "LinkedIn",
@@ -52,8 +56,8 @@ Row buildSocialMediaLinksButtons() {
                 'open', ['https://ng.linkedin.com/in/oluwatumininu-ojo']);
           },
           child: SizedBox(
-              height: 30,
-              width: 30,
+              height: 50,
+              width: 50,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Image.asset("assets/linkedin.png"),
@@ -70,8 +74,8 @@ Row buildSocialMediaLinksButtons() {
             js.context.callMethod('open', ['https://twitter.com/tumi_ojo']);
           },
           child: SizedBox(
-              height: 30,
-              width: 30,
+              height: 50,
+              width: 50,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Image.asset("assets/twitter.png"),
@@ -94,8 +98,8 @@ Row buildSocialMediaLinksButtons() {
                 const ClipboardData(text: "oluwatumininuojo25@gmail.com"));
           },
           child: SizedBox(
-              height: 30,
-              width: 30,
+              height: 50,
+              width: 50,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Image.asset(

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:tumi_ojo/utils/constants.dart';
 
-OutlinedButton buildMoreInfoButton() {
+import 'more_about_me_screen.dart';
+
+OutlinedButton buildMoreInfoButton(context) {
   return OutlinedButton(
     onPressed: () {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => const MoreAboutMeScreen()));
     },
     style: OutlinedButton.styleFrom(
-      primary: deepYellow,
+      foregroundColor: deepYellow,
       side: const BorderSide(width: 1.0, color: deepYellow),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
     ),
