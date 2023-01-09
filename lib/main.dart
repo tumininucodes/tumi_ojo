@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
     return Scaffold(
       appBar: AppBar(
         title: Row(
-          children: const [Text("<TUMI.DEV/>"), Spacer()],
+          children: const [Text("<TUMIE.DEV/>"), Spacer()],
         ),
         backgroundColor: Colors.black,
       ),

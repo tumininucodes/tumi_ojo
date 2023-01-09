@@ -1,11 +1,11 @@
 {
     "name": "tumi_ojo",
-    "short_name": "tumi_ojo",
+    "short_name": "Tumie.dev",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Tumininu Ojo.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
