@@ -8,7 +8,6 @@ import 'package:tumi_ojo/ui/title.dart';
 import 'contact_text.dart';
 import 'description.dart';
 import 'dont_be_shy.dart';
-import 'form_box.dart';
 import 'more_info_button.dart';
 import 'name.dart';
 
@@ -64,7 +63,7 @@ SizedBox buildMobileUI(context) {
                   height(20),
                   buildSocialMediaLinksButtons(context, iconSize: 25),
                   height(20),
-                  formBox(fontSize: 18, btnFontSize: 18),
+                  // formBox(fontSize: 18, btnFontSize: 18),
                 ],
               ),
             ),

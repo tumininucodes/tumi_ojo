@@ -10,7 +10,6 @@ import 'package:tumi_ojo/ui/title.dart';
 import 'contact_text.dart';
 import 'description.dart';
 import 'dont_be_shy.dart';
-import 'form_box.dart';
 import 'more_info_button.dart';
 import 'name.dart';
 
@@ -52,7 +51,7 @@ SingleChildScrollView buildDesktopUI() {
               height(40),
               buildSocialMediaLinksButtons(context, iconSize: 80),
               height(40),
-              formBox(fontSize: 20, btnFontSize: 30),
+              // formBox(fontSize: 20, btnFontSize: 30),
             ],
           ),
         ),
