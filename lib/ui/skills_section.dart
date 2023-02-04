@@ -18,7 +18,7 @@ Row buildSkillsSection({required double iconSize, required double fontSize}) {
               ),
               height(10),
               Text(
-                "KOTLIN",
+                "Kotlin",
                 style: TextStyle(color: Colors.white, fontSize: fontSize),
               )
             ],
@@ -33,7 +33,7 @@ Row buildSkillsSection({required double iconSize, required double fontSize}) {
               ),
               height(10),
               Text(
-                "SWIFTUI",
+                "SwiftUI",
                 style: TextStyle(color: Colors.white, fontSize: fontSize),
               )
             ],
@@ -52,7 +52,7 @@ Row buildSkillsSection({required double iconSize, required double fontSize}) {
               ),
               height(10),
               Text(
-                "FLUTTER",
+                "Flutter",
                 style: TextStyle(color: Colors.white, fontSize: fontSize),
               )
             ],
@@ -70,7 +70,7 @@ Row buildSkillsSection({required double iconSize, required double fontSize}) {
               ),
               height(10),
               Text(
-                "DART",
+                "Dart",
                 style: TextStyle(color: Colors.white, fontSize: fontSize),
               )
             ],
@@ -89,7 +89,7 @@ Row buildSkillsSection({required double iconSize, required double fontSize}) {
               ),
               height(10),
               Text(
-                "COMPOSE",
+                "Compose",
                 style: TextStyle(color: Colors.white, fontSize: fontSize),
               )
             ],
@@ -104,7 +104,7 @@ Row buildSkillsSection({required double iconSize, required double fontSize}) {
               ),
               height(10),
               Text(
-                "JAVA",
+                "Java",
                 style: TextStyle(color: Colors.white, fontSize: fontSize),
               )
             ],
@@ -123,7 +123,7 @@ Row buildSkillsSection({required double iconSize, required double fontSize}) {
               ),
               height(10),
               Text(
-                "GO",
+                "Go",
                 style: TextStyle(color: Colors.white, fontSize: fontSize),
               )
             ],
@@ -138,7 +138,7 @@ Row buildSkillsSection({required double iconSize, required double fontSize}) {
               ),
               height(10),
               Text(
-                "RUST",
+                "Rust",
                 style: TextStyle(color: Colors.white, fontSize: fontSize),
               )
             ],

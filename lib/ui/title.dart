@@ -8,7 +8,7 @@ Row buildTitleText({required double fontSize}) {
       ),
       Expanded(
         child: Text(
-          "I'M A SOFTWARE ENGINEER",
+          "I'm a Software Engineer",
           style: TextStyle(fontSize: fontSize, color: Colors.white),
         ),
       ),

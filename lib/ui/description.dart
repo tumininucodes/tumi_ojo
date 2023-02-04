@@ -4,10 +4,10 @@ Padding buildDescription({required double fontSize}) {
   return Padding(
     padding: const EdgeInsets.all(20.0),
     child: Text(
-        "I TURN IDEAS INTO REALITY USING CODE. I THINK I MIGHT BE A FEATURE "
-        "SHIPPING BUG IN THE MATRIX. I LOVE BUILDING GREAT PRODUCTS THAT ACTUALLY "
-        "SOLVES PEOPLE'S PROBLEM. MOST IMPORTANTLY, I WANT TO BE THE CHANGE THAT I "
-        "WANT TO SEE IN THE WORLD.",
+        "I turn ideas into reality using code. I think I might be a feature "
+        "shipping bug in the matrix. I love building great products that actually "
+        "solves people's problem. most importantly, I want to be the change that I "
+        "want to see in the world.",
         softWrap: true,
         style: TextStyle(fontSize: fontSize, color: Colors.white),
         textAlign: TextAlign.start),

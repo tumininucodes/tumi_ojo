@@ -11,10 +11,10 @@ Padding contactText({required double fontSize}) {
               style: TextStyle(fontSize: fontSize, color: Colors.white),
               children: const [
             TextSpan(
-                text: "GET IN ", style: TextStyle(fontFamily: 'DotMatrix')),
+                text: "GET IN ", style: TextStyle(fontFamily: 'BergenSans')),
             TextSpan(
                 text: "TOUCH",
-                style: TextStyle(color: deepYellow, fontFamily: 'DotMatrix')),
+                style: TextStyle(color: deepYellow, fontFamily: 'BergenSans')),
           ])),
     ),
   );

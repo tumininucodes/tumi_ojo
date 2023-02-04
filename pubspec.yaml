@@ -63,9 +63,9 @@ flutter:
 
 
   fonts:
-    - family: DotMatrix
+    - family: BergenSans
       fonts:
-        - asset: assets/fonts/dotmatrix.ttf
+        - asset: assets/fonts/bergensans.otf
 
   # To add assets to your application, add an assets section, like this:
 

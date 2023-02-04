@@ -7,9 +7,9 @@ Padding dontBeShyBox({required double fontSize}) {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "FEEL FREE TO GET IN TOUCH WITH ME. I AM ALWAYS "
-          "OPEN TO DISCUSSING NEW PROJECTS, CREATIVE "
-          "IDEAS OR OPPORTUNITIES.",
+          "Feel free to get in touch with me. I am always "
+          "open to discussing new projects, creative "
+          "ideas or opportunities.",
           style: TextStyle(
             color: Colors.white,
             fontSize: fontSize,

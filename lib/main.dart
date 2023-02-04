@@ -7,7 +7,7 @@ import 'package:tumi_ojo/utils/responsive.dart';
 void main() {
   runApp(MaterialApp(
     home: const MyApp(),
-    theme: ThemeData(fontFamily: 'DotMatrix'),
+    theme: ThemeData(fontFamily: 'BergenSans'),
     debugShowCheckedModeBanner: false,
     themeMode: ThemeMode.light,
   ));

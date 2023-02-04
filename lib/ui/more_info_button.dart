@@ -23,7 +23,7 @@ Padding buildMoreInfoButton(context, {required double fontSize}) {
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Text(
-              "MORE ABOUT ME",
+              "More about me",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: fontSize,
